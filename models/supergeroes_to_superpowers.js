@@ -43,3 +43,5 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Supergeroes_to_superpowers;
 };
+
+edfedf
