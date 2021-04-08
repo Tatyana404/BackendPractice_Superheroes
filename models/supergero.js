@@ -2,11 +2,11 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Supergeroes extends Model {
-    static associate (models) {
-      Supergeroes.hasMany(models.Superpowers, {
-        foreignKey: 'id',
-      });
-    }
+    // static associate (models) {
+    //   Supergeroes.hasMany(models.Superpowers, {
+    //     foreignKey: 'id',
+    //   });
+    // }
   }
   Supergeroes.init(
     {
