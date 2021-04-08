@@ -36,9 +36,9 @@ Content-Type: application/json
 #   "catchPhrase": "'I am iron man!'"
 # }
 
-{
-  "nickName": "Flash",
-  "realName": "Barry Allen",
-  "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
-  "catchPhrase": "'Because I'm super fast!'"
-}
+# {
+#   "nickName": "Flash",
+#   "realName": "Barry Allen",
+#   "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
+#   "catchPhrase": "'Because I'm super fast!'"
+# }
