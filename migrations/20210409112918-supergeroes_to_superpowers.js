@@ -17,8 +17,8 @@ module.exports = {
           model: 'supergeroes',
           key: 'id',
         },
-        onDelete: 'restrict',
-        onUpdate: 'restrict',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       superpowerId: {
         field: 'superpower_id',
@@ -29,7 +29,7 @@ module.exports = {
           key: 'id',
         },
         onDelete: 'cascade',
-        onUpdate: 'restrict',
+        onUpdate: 'cascade',
       },
     });
   },
