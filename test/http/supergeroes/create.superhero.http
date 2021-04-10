@@ -8,19 +8,20 @@ Content-Type: application/json
 #   "catchPhrase": "'Look, up in the sky, it's a bird, it's a plane, it's Superman!'"
 # }
 
-{
-  "nickName": "Spiderman",
-  "realName": "Peter Parker",
-  "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
-  "catchPhrase": "'The more strength, the more responsibility'"
-}
-
 # {
-#   "nickName": "Batman",
-#   "realName": "Bruce Wayne",
-#   "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
-#   "catchPhrase": "'Because I am Batman!'"
+#   "nickName": "Spiderman",
+#   "realName": "Peter Parker",
+#   "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
+#   "catchPhrase": "'The more strength, the more responsibility'"
 # }
+
+{
+  "nickName": "Batman",
+  "realName": "Bruce Wayne",
+  "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
+  "catchPhrase": "'Because I am Batman!'",
+  "powerName":["intelligence","extensive knowledge","martial arts knowledge","dexterity"]
+}
 
 # {
 #   "nickName": "Hulk",

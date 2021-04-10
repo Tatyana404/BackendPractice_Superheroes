@@ -1,10 +1,23 @@
 const createError = require('http-errors');
-const { Supergero } = require('../models');
+const { Supergeroes, } = require('../models');
 
 module.exports.createSupergero = async (req, res, next) => {
   try {
     const { body } = req;
-    const createdSupergero = await Supergero.create(body);
+    // const valuesSP = findAll(body, ['power_name']);
+    // const massiveOfObjectSuperpowers= valuesSP.map((stringSuperpowers)=>{return {superpower:stringSuperpowers}});
+
+
+    const createdSupergero = await Supergeroes.create(body);
+
+
+
+    // const superpower = await Superpower.bulkCreate(
+    //   massiveOfObjectSuperpowers   
+    //  );
+
+
+
 
     if (!createdSupergero) {
       return next(createError(400));

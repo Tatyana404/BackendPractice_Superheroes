@@ -8,9 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      heroId: {
+        field: 'hero_id',
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'supergeroes',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      },
       powerName: {
         field: 'power_name',
         allowNull: false,
+        unique: true,
         type: Sequelize.STRING,
         validate: {
           notNull: true,

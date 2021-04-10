@@ -27,10 +27,7 @@ module.exports = {
       catchPhrase: {
         field: 'catch_phrase',
         unique: true,
-        type: Sequelize.STRING(256),
-      },
-      images: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
       },
       createdAt: {
         field: 'created_at',
