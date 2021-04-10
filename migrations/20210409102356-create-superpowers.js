@@ -23,7 +23,7 @@ module.exports = {
         field: 'power_name',
         allowNull: false,
         unique: true,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(500),
         validate: {
           notNull: true,
           notEmpty: true,

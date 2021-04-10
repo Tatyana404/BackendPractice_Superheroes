@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class Supergeroes extends Model {
     static associate (models) {
       Supergeroes.hasMany(models.Superpowers, {
-        // through: 'superpowers',
         foreignKey: 'heroId',
+        onUpdate: 'cascade',
         onDelete: 'cascade',
       });
     }

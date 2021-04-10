@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
   class Superpowers extends Model {
     static associate (models) {
       Superpowers.belongsTo(models.Supergeroes, {
-        // through: 'superpowers',
         foreignKey: 'heroId',
       });
     }
@@ -26,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'power_name',
         allowNull: false,
         unique: true,
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(500),
         validate: {
           notNull: true,
           notEmpty: true,
