@@ -13,11 +13,11 @@ module.exports.createSupergero = async (req, res, next) => {
 
     const createSuperpower = await Superpowers.bulkCreate(
       powerName.map(stringSuperpowers => ({
-        name: stringSuperpowers,
+        powerName: stringSuperpowers,
         heroId: id,
       })),
       {
-        fields: ['name', 'heroId'],
+        fields: ['power_name', 'heroId'],
         returning: true,
       }
     );
@@ -25,7 +25,7 @@ module.exports.createSupergero = async (req, res, next) => {
     createdSupergero = createSuperpower;
 
     if (!createdSupergero) {
-      return next(createError(400));
+      return next(createError(400, 'Error when creating a hero'));
     }
 
     res.status(201).send({
@@ -40,13 +40,6 @@ module.exports.getAllSupergeroes = async (req, res, next) => {
   try {
     const { pagination = {} } = req;
     const supergeroes = await Supergeroes.findAll({ ...pagination });
-
-
-
-
-
-
-
 
     if (!supergeroes.length) {
       return next(createError(404, 'Supergeroes not found'));
@@ -67,32 +60,25 @@ module.exports.updateSupergero = async (req, res, next) => {
       body,
     } = req;
 
+    const { powerName } = body;
+
     const [rowsCount, [updateSupergero]] = await Supergeroes.update(body, {
       where: { id },
       returning: true,
     });
 
-    // const { powerName } = body;
-    // const {
-    //   dataValues: { id },
-    // } = updateSupergero;
+    const updateSuperpower = await Superpowers.bulkCreate(
+      powerName.map(stringSuperpowers => ({
+        powerName: stringSuperpowers,
+        heroId: id,
+      })),
+      {
+        fields: ['powerName', 'heroId'],
+        returning: true,
+      }
+    );
 
-    // const updateSupergero = await Superpowers.bulkCreate(
-    //   powerName.map(stringSuperpowers => ({
-    //     name: stringSuperpowers,
-    //     heroId: id,
-    //   })),
-    //   {
-    //     fields: ['name', 'heroId'],
-    //     returning: true,
-    //   }
-    // );
-
-    // updateSupergero = updateSupergero;
-
-
-
-
+    updateSupergero = updateSuperpower;
 
     if (rowsCount !== 1) {
       return next(createError(400, 'Supergero cant be updated'));

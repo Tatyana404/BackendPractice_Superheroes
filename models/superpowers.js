@@ -5,6 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       Superpowers.belongsTo(models.Supergeroes, {
         foreignKey: 'heroId',
+        onUpdate: 'cascade',
+        onDelete: 'cascade',
       });
     }
   }
@@ -30,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true,
           notEmpty: true,
         },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
     },
     {

@@ -28,6 +28,8 @@ module.exports = {
           notNull: true,
           notEmpty: true,
         },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       createdAt: {
         field: 'created_at',
