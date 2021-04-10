@@ -104,9 +104,7 @@ module.exports.deleteSupergero = async (req, res, next) => {
       return next(createError(404, 'Supergero not found'));
     }
 
-    res
-      .status(200)
-      .send({ data: `${rowsCount} Supergero successfully deleted` });
+    res.status(200).send({ data: `${rowsCount} Supergero successfully deleted` });
   } catch (err) {
     next(err);
   }
