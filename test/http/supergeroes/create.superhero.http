@@ -17,13 +17,13 @@ Content-Type: application/json
 # "powerName":["superhuman reflexes","'Spider-instinct'","ability to adhere to hard surfaces","web production"]
 # }
 
-{
-  "nickName": "Batman",
-  "realName": "Bruce Wayne",
-  "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
-  "catchPhrase": "'Because I am Batman!'",
-  "powerName":["intelligence","extensive knowledge","martial arts knowledge","dexterity"]
-}
+# {
+#   "nickName": "Batman",
+#   "realName": "Bruce Wayne",
+#   "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
+#   "catchPhrase": "'Because I am Batman!'",
+#   "powerName":["intelligence","extensive knowledge","martial arts knowledge","dexterity"]
+# }
 
 # {
 #   "nickName": "Hulk",
@@ -41,10 +41,10 @@ Content-Type: application/json
 #   "powerName":["high level of intelligence","broad knowledge of science and technology","connection with the world wide web","armored suits"]
 # }
 
-# {
-#   "nickName": "Flash",
-#   "realName": "Barry Allen",
-#   "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
-#   "catchPhrase": "'Because I'm super fast!'",
-#   "powerName":["able to move, think and react with superhuman speed","able to read and perceive information at super speed","much tougher than an ordinary person"]
-# }
+{
+  "nickName": "Flash",
+  "realName": "Barry Allen",
+  "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
+  "catchPhrase": "'Because I'm super fast!'",
+  "powerName":["able to move, think and react with superhuman speed","able to read and perceive information at super speed","much tougher than an ordinary person"]
+}

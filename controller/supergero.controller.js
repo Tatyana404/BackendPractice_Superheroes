@@ -17,7 +17,7 @@ module.exports.createSupergero = async (req, res, next) => {
         heroId: id,
       })),
       {
-        fields: ['power_name', 'heroId'],
+        fields: ['powerName', 'heroId'],
         returning: true,
       }
     );
@@ -67,7 +67,7 @@ module.exports.updateSupergero = async (req, res, next) => {
       returning: true,
     });
 
-    const updateSuperpower = await Superpowers.bulkCreate(
+    const addSuperpower = await Superpowers.bulkCreate(
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
@@ -78,7 +78,7 @@ module.exports.updateSupergero = async (req, res, next) => {
       }
     );
 
-    updateSupergero = updateSuperpower;
+    updateSupergero = addSuperpower;
 
     if (rowsCount !== 1) {
       return next(createError(400, 'Supergero cant be updated'));
