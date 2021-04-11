@@ -11,7 +11,7 @@ module.exports.createSupergero = async (req, res, next) => {
       dataValues: { id },
     } = createdSupergero;
 
-    const createSuperpower = await Superpowers.bulkCreate(
+    await Superpowers.bulkCreate(
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
@@ -21,8 +21,6 @@ module.exports.createSupergero = async (req, res, next) => {
         returning: true,
       }
     );
-
-    createdSupergero = createSuperpower;
 
     if (!createdSupergero) {
       return next(createError(400, 'Error when creating a hero'));
@@ -67,7 +65,7 @@ module.exports.updateSupergero = async (req, res, next) => {
       returning: true,
     });
 
-    const addSuperpower = await Superpowers.bulkCreate(
+    await Superpowers.bulkCreate(
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
@@ -77,8 +75,6 @@ module.exports.updateSupergero = async (req, res, next) => {
         returning: true,
       }
     );
-
-    updateSupergero = addSuperpower;
 
     if (rowsCount !== 1) {
       return next(createError(400, 'Supergero cant be updated'));
@@ -104,7 +100,9 @@ module.exports.deleteSupergero = async (req, res, next) => {
       return next(createError(404, 'Supergero not found'));
     }
 
-    res.status(200).send({ data: `${rowsCount} Supergero successfully deleted` });
+    res
+      .status(200)
+      .send({ data: `${rowsCount} Supergero successfully deleted` });
   } catch (err) {
     next(err);
   }
