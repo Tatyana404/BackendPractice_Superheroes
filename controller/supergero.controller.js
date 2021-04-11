@@ -42,9 +42,7 @@ module.exports.getAllSupergeroes = async (req, res, next) => {
       include: [
         {
           model: Superpowers,
-          attributes: {
-            exclude: ['heroId', 'createdAt', 'updatedAt'],
-          },
+          attributes: ['id', 'powerName'],
         },
       ],
     });
