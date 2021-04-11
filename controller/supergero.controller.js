@@ -37,7 +37,17 @@ module.exports.createSupergero = async (req, res, next) => {
 module.exports.getAllSupergeroes = async (req, res, next) => {
   try {
     const { pagination = {} } = req;
-    const supergeroes = await Supergeroes.findAll({ ...pagination });
+    const supergeroes = await Supergeroes.findAll({
+      ...pagination,
+      include: [
+        {
+          model: Superpowers,
+          attributes: {
+            exclude: ['heroId', 'createdAt', 'updatedAt'],
+          },
+        },
+      ],
+    });
 
     if (!supergeroes.length) {
       return next(createError(404, 'Supergeroes not found'));
