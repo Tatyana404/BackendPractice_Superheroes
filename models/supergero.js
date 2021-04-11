@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'cascade',
         onDelete: 'cascade',
       });
+      Supergeroes.hasMany(models.Images, {
+        foreignKey: 'heroId',
+        onUpdate: 'cascade',
+        onDelete: 'cascade',
+      });
     }
   }
   Supergeroes.init(
