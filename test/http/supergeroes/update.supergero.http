@@ -4,5 +4,6 @@ Content-Type: application/json
 {
   "nickName": "Captain America",
   "realName": "Stephen Rogers",
-  "powerName":["impenetrability","superpower","self-healing","supervision and super hearing"]
+  "powerName":["impenetrability","superpower","self-healing","supervision and super hearing"],
+  "imagePath": ["test link","test link","test link"]
 }
