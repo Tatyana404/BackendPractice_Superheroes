@@ -1,12 +1,12 @@
 const createError = require('http-errors');
-const { Supergeroes, Superpowers } = require('../models');
+const { Supergeroes, Superpowers, Images } = require('../models');
 
 module.exports.createSupergero = async (req, res, next) => {
   try {
     const { body } = req;
     const createdSupergero = await Supergeroes.create(body);
 
-    const { powerName } = body;
+    const { powerName, imagePath } = body;
     const {
       dataValues: { id },
     } = createdSupergero;
@@ -18,6 +18,17 @@ module.exports.createSupergero = async (req, res, next) => {
       })),
       {
         fields: ['powerName', 'heroId'],
+        returning: true,
+      }
+    );
+
+    await Images.bulkCreate(
+      imagePath.map(stringImages => ({
+        imagePath: stringImages,
+        heroId: id,
+      })),
+      {
+        fields: ['imagePath', 'heroId'],
         returning: true,
       }
     );

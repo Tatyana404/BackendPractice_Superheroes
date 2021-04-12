@@ -17,16 +17,7 @@ module.exports.createImage = async (req, res, next) => {
       }
     );
 
-    // await Images.bulkCreate(
-    //   imagePath.map(stringImages => ({
-    //     imagePath: stringImages,
-    //     heroId: id,
-    //   })),
-    //   {
-    //     fields: ['imagePath', 'heroId'],
-    //     returning: true,
-    //   }
-    // );
+
 
     res.send(updatedSupergero);
   } catch (err) {

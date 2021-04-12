@@ -10,23 +10,23 @@ Content-Type: application/json
 # "imagePath": ["test link","test link","test link"]
 # }
 
-{
-  "nickName": "Spiderman",
-  "realName": "Peter Parker",
-  "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
-  "catchPhrase": "'The more strength, the more responsibility'",
-"powerName":["superhuman reflexes","'Spider-instinct'","ability to adhere to hard surfaces","web production"],
-  "imagePath": ["test link","test link","test link"]
-}
-
 # {
-#   "nickName": "Batman",
-#   "realName": "Bruce Wayne",
-#   "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
-#   "catchPhrase": "'Because I am Batman!'",
-#   "powerName":["intelligence","extensive knowledge","martial arts knowledge","dexterity"],
-# "imagePath": ["test link","test link","test link"]
+#   "nickName": "Spiderman",
+#   "realName": "Peter Parker",
+#   "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
+#   "catchPhrase": "'The more strength, the more responsibility'",
+# "powerName":["superhuman reflexes","'Spider-instinct'","ability to adhere to hard surfaces","web production"],
+#   "imagePath": ["test link","test link","test link"]
 # }
+
+{
+  "nickName": "Batman",
+  "realName": "Bruce Wayne",
+  "originDescription": "His parents were killed in an alley by a petty robber, which inflicted severe mental trauma on the boy and he decided to fight evil",
+  "catchPhrase": "'Because I am Batman!'",
+  "powerName":["intelligence","extensive knowledge","martial arts knowledge","dexterity"],
+"imagePath": ["test link","test link","test link"]
+}
 
 # {
 #   "nickName": "Hulk",
