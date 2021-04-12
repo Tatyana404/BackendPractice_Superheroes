@@ -19,5 +19,6 @@ const upload = multer({ storage });
 const imageRouter = Router();
 
 imageRouter.post('/', upload.any('image'), ImageController.createImage);
+imageRouter.delete('/:imageId', ImageController.deleteImage);
 
 module.exports = imageRouter;
