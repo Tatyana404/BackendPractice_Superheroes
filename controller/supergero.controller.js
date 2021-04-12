@@ -77,7 +77,7 @@ module.exports.updateSupergero = async (req, res, next) => {
       body,
     } = req;
 
-    const { powerName } = body;
+    const { powerName, imagePath } = body;
 
     const [rowsCount, [updateSupergero]] = await Supergeroes.update(body, {
       where: { id },
@@ -91,6 +91,17 @@ module.exports.updateSupergero = async (req, res, next) => {
       })),
       {
         fields: ['powerName', 'heroId'],
+        returning: true,
+      }
+    );
+
+    await Images.bulkCreate(
+      imagePath.map(stringImages => ({
+        imagePath: stringImages,
+        heroId: id,
+      })),
+      {
+        fields: ['imagePath', 'heroId'],
         returning: true,
       }
     );
