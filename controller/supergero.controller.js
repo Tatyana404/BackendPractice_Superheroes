@@ -55,6 +55,10 @@ module.exports.getAllSupergeroes = async (req, res, next) => {
           model: Superpowers,
           attributes: ['id', 'powerName'],
         },
+        {
+          model: Images,
+          attributes: ['id', 'imagePath'],
+        },
       ],
     });
 
