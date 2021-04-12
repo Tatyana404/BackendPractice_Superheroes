@@ -5,7 +5,8 @@ const paginate = require('../middlewares/paginate.mw');
 
 const imageRouter = Router();
 
-imageRouter.post('/', upload.any('image'), ImageController.createImage);
+imageRouter.post('/image', upload.any('image'), ImageController.createImageMulter);
+imageRouter.post('/', ImageController.createImage);
 imageRouter.get('/', paginate, ImageController.getAllImages);
 imageRouter.delete('/:imageId', ImageController.deleteImage);
 
