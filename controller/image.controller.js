@@ -17,13 +17,13 @@ module.exports.createImage = async (req, res, next) => {
       }
     );
 
-    // await Superpowers.bulkCreate(
-    //   powerName.map(stringSuperpowers => ({
-    //     powerName: stringSuperpowers,
+    // await Images.bulkCreate(
+    //   imagePath.map(stringImages => ({
+    //     imagePath: stringImages,
     //     heroId: id,
     //   })),
     //   {
-    //     fields: ['powerName', 'heroId'],
+    //     fields: ['imagePath', 'heroId'],
     //     returning: true,
     //   }
     // );

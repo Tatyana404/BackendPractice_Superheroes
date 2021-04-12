@@ -1,9 +1,10 @@
 const express = require('express');
 const router = require('./routes');
 const errorHandler = require('./middlewares/error.handlers.js');
+const { STATIC_PATH } = require('./config/config');
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static(STATIC_PATH));
 
 app.use(express.json());
 
