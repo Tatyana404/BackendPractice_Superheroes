@@ -23,6 +23,28 @@ module.exports.createImage = async (req, res, next) => {
   }
 };
 
+module.exports.getAllImages = async (req, res, next) => {
+  try {
+    const { pagination = {} } = req;
+    const images = await Images.findAll({
+      attributes: {
+        exclude: ['heroId'],
+      },
+      ...pagination,
+    });
+
+    if (!images.length) {
+      return next(createError(404, 'Images not found'));
+    }
+
+    res.status(200).send({
+      data: images,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports.deleteImage = async (req, res, next) => {
   try {
     const {
