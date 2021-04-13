@@ -1,7 +1,7 @@
 const createError = require('http-errors');
-const { Images } = require('../models/');
+const { Images, Supergero } = require('../models/');
 
-module.exports.createImage = async (req, res, next) => {
+module.exports.createImages = async (req, res, next) => {
   try {
     const { body } = req;
 
@@ -19,20 +19,18 @@ module.exports.createImage = async (req, res, next) => {
   }
 };
 
-module.exports.createImageMulter = async (req, res, next) => {
+module.exports.createImagesMulter = async (req, res, next) => {
   try {
     const {
       file: { filename },
-      params: { heroId },
+      params: { id },
     } = req;
 
-    const [count, [updatedSupergero]] = await Images.update(
-      { imagePath: filename },
-      {
-        where: { id: heroId },
-        returning: true,
-      }
-    );
+    const updatedSupergero = await Images.create({
+      heroId: id,
+      imagePath: filename,
+      returning: true,
+    });
 
     res.send(updatedSupergero);
   } catch (err) {

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Images.init(
     {
-      heroIg: {
+      heroId: {
         field: 'hero_id',
         type: DataTypes.INTEGER,
         allowNull: false,
