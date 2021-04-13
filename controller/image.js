@@ -1,5 +1,5 @@
 const createError = require('http-errors');
-const { Images, Supergero } = require('../models/');
+const { Images } = require('../models');
 
 module.exports.createImages = async (req, res, next) => {
   try {
@@ -23,13 +23,12 @@ module.exports.createImagesMulter = async (req, res, next) => {
   try {
     const {
       file: { filename },
-      params: { id },
+      params: { heroId },
     } = req;
 
     const updatedSupergero = await Images.create({
-      heroId: id,
+      heroId: heroId,
       imagePath: filename,
-      returning: true,
     });
 
     res.send(updatedSupergero);

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const SupergeroController = require('../controller/supergero.controller');
+const SupergeroController = require('../controller/supergero');
 const paginate = require('../middlewares/paginate.mw');
 
 const supergeroRouter = Router();

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const ImageController = require('../controller/image.controller');
+const ImageController = require('../controller/image');
 const upload = require('../middlewares/rename.helper.img.mw');
 const paginate = require('../middlewares/paginate.mw');
 
