@@ -5,7 +5,6 @@ module.exports.createSupergero = async (req, res, next) => {
   try {
     const { body } = req;
     const createdSupergero = await Supergeroes.create(body);
-
     const { powerName, imagePath } = body;
     const {
       dataValues: { id },
@@ -37,8 +36,21 @@ module.exports.createSupergero = async (req, res, next) => {
       return next(createError(400, 'Error when creating a hero'));
     }
 
+    const newHero = await Supergeroes.findAll({
+      include: [
+        {
+          model: Superpowers,
+          attributes: ['id', 'powerName'],
+        },
+        {
+          model: Images,
+          attributes: ['id', 'imagePath'],
+        },
+      ],
+    });
+
     res.status(201).send({
-      data: createdSupergero,
+      data: newHero,
     });
   } catch (err) {
     next(err);
