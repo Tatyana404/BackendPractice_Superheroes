@@ -10,14 +10,14 @@ Content-Type: application/json
 # "imagePath": ["test link","test link","test link"]
 # }
 
-# {
-#   "nickName": "Spiderman",
-#   "realName": "Peter Parker",
-#   "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
-#   "catchPhrase": "'The more strength, the more responsibility'",
-# "powerName":["superhuman reflexes","'Spider-instinct'","ability to adhere to hard surfaces","web production"],
-#   "imagePath": ["test link","test link","test link"]
-# }
+{
+  "nickName": "Spiderman",
+  "realName": "Peter Parker",
+  "originDescription": "Once he was an ordinary schoolboy, but he was bitten by a radioactive spider and endowed with wonderful abilities. Once he did not stop a petty robber when there was an opportunity and he killed his uncle, which injured the Spider and he decided to fight evil",
+  "catchPhrase": "'The more strength, the more responsibility'",
+"powerName":["superhuman reflexes","'Spider-instinct'","ability to adhere to hard surfaces","web production"],
+  "imagePath": ["test link","test link","test link"]
+}
 
 # {
 #   "nickName": "Batman",
@@ -46,11 +46,11 @@ Content-Type: application/json
 # "imagePath": ["test link","test link","test link"]
 # }
 
-{
-  "nickName": "Flash",
-  "realName": "Barry Allen",
-  "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
-  "catchPhrase": "'Because I'm super fast!'",
-  "powerName":["able to move, think and react with superhuman speed","able to read and perceive information at super speed","much tougher than an ordinary person"],
-"imagePath": ["test link","test link","test link"]
-}
+# {
+#   "nickName": "Flash",
+#   "realName": "Barry Allen",
+#   "originDescription": "His father was sent to prison for the murder of his mother, which he did not commit, and he is determined to prove his father's innocence. Somehow he was struck by lightning and endowed with the ability to quickly move in time and space",
+#   "catchPhrase": "'Because I'm super fast!'",
+#   "powerName":["able to move, think and react with superhuman speed","able to read and perceive information at super speed","much tougher than an ordinary person"],
+# "imagePath": ["test link","test link","test link"]
+# }

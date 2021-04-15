@@ -3,54 +3,47 @@ const { Supergeroes, Superpowers, Images } = require('../models');
 
 module.exports.createSupergero = async (req, res, next) => {
   try {
-    const { body } = req;
-    const createdSupergero = await Supergeroes.create(body);
-    const { powerName, imagePath } = body;
     const {
-      dataValues: { id },
-    } = createdSupergero;
+      body,
+      body: { powerName, imagePath },
+    } = req;
 
-    await Superpowers.bulkCreate(
-      powerName.map(stringSuperpowers => ({
-        powerName: stringSuperpowers,
-        heroId: id,
-      })),
-      {
-        fields: ['powerName', 'heroId'],
-        returning: true,
-      }
-    );
-
-    await Images.bulkCreate(
-      imagePath.map(stringImages => ({
-        imagePath: stringImages,
-        heroId: id,
-      })),
-      {
-        fields: ['imagePath', 'heroId'],
-        returning: true,
-      }
-    );
+    const createdSupergero = await Supergeroes.create(body);
+    const { id } = createdSupergero;
 
     if (!createdSupergero) {
       return next(createError(400, 'Error when creating a hero'));
     }
 
-    const newHero = await Supergeroes.findAll({
-      include: [
-        {
-          model: Superpowers,
-          attributes: ['id', 'powerName'],
-        },
-        {
-          model: Images,
-          attributes: ['id', 'imagePath'],
-        },
-      ],
-    });
+    const superpowers = await Superpowers.bulkCreate(
+      powerName.map(stringSuperpowers => ({
+        powerName: stringSuperpowers,
+        heroId: id,
+      }))
+    );
+
+    const images = await Images.bulkCreate(
+      imagePath.map(stringImages => ({
+        imagePath: stringImages,
+        heroId: id,
+      }))
+    );
+
+    // const newHero = await Supergeroes.findAll({
+    //   include: [
+    //     {
+    //       model: Superpowers,
+    //       attributes: ['id', 'powerName'],
+    //     },
+    //     {
+    //       model: Images,
+    //       attributes: ['id', 'imagePath'],
+    //     },
+    //   ],
+    // });
 
     res.status(201).send({
-      data: newHero,
+      data: { ...createdSupergero.get(), superpowers, images },
     });
   } catch (err) {
     next(err);
