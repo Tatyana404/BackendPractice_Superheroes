@@ -11,7 +11,7 @@ module.exports.createSupergero = async (req, res, next) => {
     const createdSupergero = await Supergeroes.create(body);
     const { id } = createdSupergero;
 
-    if (!createdSupergero) {
+    if (!id) {
       return next(createError(400, 'Error when creating a hero'));
     }
 
@@ -28,19 +28,6 @@ module.exports.createSupergero = async (req, res, next) => {
         heroId: id,
       }))
     );
-
-    // const newHero = await Supergeroes.findAll({
-    //   include: [
-    //     {
-    //       model: Superpowers,
-    //       attributes: ['id', 'powerName'],
-    //     },
-    //     {
-    //       model: Images,
-    //       attributes: ['id', 'imagePath'],
-    //     },
-    //   ],
-    // });
 
     res.status(201).send({
       data: { ...createdSupergero.get(), superpowers, images },
