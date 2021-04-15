@@ -95,7 +95,7 @@ module.exports.updateSupergero = async (req, res, next) => {
 
     const { powerName, imagePath } = body;
 
-    const [rowsCount, [updateSupergero]] = await Supergeroes.update(body, {
+    const [rowsCount, []] = await Supergeroes.update(body, {
       where: { id },
       returning: true,
     });
@@ -104,29 +104,34 @@ module.exports.updateSupergero = async (req, res, next) => {
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
-      })),
-      {
-        fields: ['powerName', 'heroId'],
-        returning: true,
-      }
+      }))
     );
 
     await Images.bulkCreate(
       imagePath.map(stringImages => ({
         imagePath: stringImages,
         heroId: id,
-      })),
-      {
-        fields: ['imagePath', 'heroId'],
-        returning: true,
-      }
+      }))
     );
 
     if (rowsCount !== 1) {
       return next(createError(400, 'Supergero cant be updated'));
     }
 
-    res.send({ data: updateSupergero });
+    const updateHero = await Supergeroes.findAll({
+      include: [
+        {
+          model: Superpowers,
+          attributes: ['id', 'powerName'],
+        },
+        {
+          model: Images,
+          attributes: ['id', 'imagePath'],
+        },
+      ],
+    });
+
+    res.send({ data: updateHero });
   } catch (err) {
     next(err);
   }
