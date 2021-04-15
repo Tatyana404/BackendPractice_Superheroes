@@ -22,12 +22,20 @@ module.exports.createSupergero = async (req, res, next) => {
       }))
     );
 
+    if (!superpowers) {
+      return next(createError(400, 'Error while creating super powers'));
+    }
+
     const images = await Images.bulkCreate(
       imagePath.map(stringImages => ({
         imagePath: stringImages,
         heroId: id,
       }))
     );
+
+    if (!images) {
+      return next(createError(400, 'Error while creating images'));
+    }
 
     res.status(201).send({
       data: { ...createdSupergero.get(), superpowers, images },
