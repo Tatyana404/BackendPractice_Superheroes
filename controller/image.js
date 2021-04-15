@@ -1,11 +1,11 @@
 const createError = require('http-errors');
-const { Images } = require('../models');
+const { Image } = require('../models');
 
 module.exports.createImages = async (req, res, next) => {
   try {
     const { body } = req;
 
-    const createdImage = await Images.create(body);
+    const createdImage = await Image.create(body);
 
     if (!createdImage) {
       return next(createError(400, 'Error while creating the image'));
@@ -26,7 +26,7 @@ module.exports.createImagesMulter = async (req, res, next) => {
       params: { heroId },
     } = req;
 
-    const updatedSupergero = await Images.create({
+    const updatedSupergero = await Image.create({
       heroId: heroId,
       imagePath: filename,
     });
@@ -40,7 +40,7 @@ module.exports.createImagesMulter = async (req, res, next) => {
 module.exports.getAllImages = async (req, res, next) => {
   try {
     const { pagination = {} } = req;
-    const images = await Images.findAll({
+    const images = await Image.findAll({
       attributes: {
         exclude: ['heroId'],
       },
@@ -65,7 +65,7 @@ module.exports.deleteImage = async (req, res, next) => {
       params: { imageId },
     } = req;
 
-    const rowsCount = await Images.destroy({
+    const rowsCount = await Image.destroy({
       where: { id: imageId },
     });
 

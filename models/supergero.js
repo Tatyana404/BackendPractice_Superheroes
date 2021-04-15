@@ -1,21 +1,21 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Supergeroes extends Model {
+  class Supergero extends Model {
     static associate (models) {
-      Supergeroes.hasMany(models.Superpowers, {
+      Supergero.hasMany(models.Superpower, {
         foreignKey: 'heroId',
         onUpdate: 'cascade',
         onDelete: 'cascade',
       });
-      Supergeroes.hasMany(models.Images, {
+      Supergero.hasMany(models.Image, {
         foreignKey: 'heroId',
         onUpdate: 'cascade',
         onDelete: 'cascade',
       });
     }
   }
-  Supergeroes.init(
+  Supergero.init(
     {
       nickName: {
         field: 'nick_name',
@@ -45,10 +45,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Supergeroes',
+      modelName: 'Supergero',
       tableName: 'supergeroes',
       underscored: true,
     }
   );
-  return Supergeroes;
+  return Supergero;
 };

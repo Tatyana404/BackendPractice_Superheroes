@@ -1,16 +1,16 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Images extends Model {
+  class Image extends Model {
     static associate (models) {
-      Images.belongsTo(models.Supergeroes, {
+      Image.belongsTo(models.Supergero, {
         foreignKey: 'heroId',
         onUpdate: 'cascade',
         onDelete: 'cascade',
       });
     }
   }
-  Images.init(
+  Image.init(
     {
       heroId: {
         field: 'hero_id',
@@ -37,10 +37,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Images',
+      modelName: 'Image',
       tableName: 'images',
       underscored: true,
     }
   );
-  return Images;
+  return Image;
 };

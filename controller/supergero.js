@@ -1,5 +1,5 @@
 const createError = require('http-errors');
-const { Supergeroes, Superpowers, Images } = require('../models');
+const { Supergero, Superpower, Image } = require('../models');
 
 module.exports.createSupergero = async (req, res, next) => {
   try {
@@ -8,14 +8,14 @@ module.exports.createSupergero = async (req, res, next) => {
       body: { powerName, imagePath },
     } = req;
 
-    const createdSupergero = await Supergeroes.create(body);
+    const createdSupergero = await Supergero.create(body);
     const { id } = createdSupergero;
 
     if (!id) {
       return next(createError(400, 'Error when creating a hero'));
     }
 
-    const superpowers = await Superpowers.bulkCreate(
+    const superpowers = await Superpower.bulkCreate(
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
@@ -26,7 +26,7 @@ module.exports.createSupergero = async (req, res, next) => {
       return next(createError(400, 'Error while creating super powers'));
     }
 
-    const images = await Images.bulkCreate(
+    const images = await Image.bulkCreate(
       imagePath.map(stringImages => ({
         imagePath: stringImages,
         heroId: id,
@@ -36,6 +36,19 @@ module.exports.createSupergero = async (req, res, next) => {
     if (!images) {
       return next(createError(400, 'Error while creating images'));
     }
+
+        // const newHero = await Supergero.findAll({
+    //   include: [
+    //     {
+    //       model: Superpower,
+    //       attributes: ['id', 'powerName'],
+    //     },
+    //     {
+    //       model: Image,
+    //       attributes: ['id', 'imagePath'],
+    //     },
+    //   ],
+    // });
 
     res.status(201).send({
       data: { ...createdSupergero.get(), superpowers, images },
@@ -48,7 +61,7 @@ module.exports.createSupergero = async (req, res, next) => {
 module.exports.getAllSupergeroes = async (req, res, next) => {
   try {
     const { pagination = {} } = req;
-    const supergeroes = await Supergeroes.findAll({
+    const supergeroes = await Supergero.findAll({
       ...pagination,
       include: [
         {
@@ -83,19 +96,19 @@ module.exports.updateSupergero = async (req, res, next) => {
 
     const { powerName, imagePath } = body;
 
-    const [rowsCount, []] = await Supergeroes.update(body, {
+    const [rowsCount, [updateSupergero]] = await Supergero.update(body, {
       where: { id },
       returning: true,
     });
 
-    await Superpowers.bulkCreate(
+    await Superpower.bulkCreate(
       powerName.map(stringSuperpowers => ({
         powerName: stringSuperpowers,
         heroId: id,
       }))
     );
 
-    await Images.bulkCreate(
+    await Image.bulkCreate(
       imagePath.map(stringImages => ({
         imagePath: stringImages,
         heroId: id,
@@ -106,20 +119,20 @@ module.exports.updateSupergero = async (req, res, next) => {
       return next(createError(400, 'Supergero cant be updated'));
     }
 
-    const updateHero = await Supergeroes.findAll({
-      include: [
-        {
-          model: Superpowers,
-          attributes: ['id', 'powerName'],
-        },
-        {
-          model: Images,
-          attributes: ['id', 'imagePath'],
-        },
-      ],
-    });
+    // const updateHero = await Supergero.findAll({
+    //   include: [
+    //     {
+    //       model: Superpower,
+    //       attributes: ['id', 'powerName'],
+    //     },
+    //     {
+    //       model: Image,
+    //       attributes: ['id', 'imagePath'],
+    //     },
+    //   ],
+    // });
 
-    res.send({ data: updateHero });
+    res.send({ data: { updateSupergero } });
   } catch (err) {
     next(err);
   }
@@ -131,7 +144,7 @@ module.exports.deleteSupergero = async (req, res, next) => {
       params: { supergeroId },
     } = req;
 
-    const rowsCount = await Supergeroes.destroy({
+    const rowsCount = await Supergero.destroy({
       where: { id: supergeroId },
     });
 

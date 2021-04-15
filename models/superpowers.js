@@ -1,16 +1,16 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Superpowers extends Model {
+  class Superpower extends Model {
     static associate (models) {
-      Superpowers.belongsTo(models.Supergeroes, {
+      Superpower.belongsTo(models.Supergero, {
         foreignKey: 'heroId',
         onUpdate: 'cascade',
         onDelete: 'cascade',
       });
     }
   }
-  Superpowers.init(
+  Superpower.init(
     {
       heroId: {
         field: 'hero_id',
@@ -38,10 +38,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Superpowers',
+      modelName: 'Superpower',
       tableName: 'superpowers',
       underscored: true,
     }
   );
-  return Superpowers;
+  return Superpower;
 };
