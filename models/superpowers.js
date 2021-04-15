@@ -12,17 +12,17 @@ module.exports = (sequelize, DataTypes) => {
   }
   Superpower.init(
     {
-      heroId: {
-        field: 'hero_id',
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Supergeroes',
-          key: 'id',
-        },
-        onDelete: 'cascade',
-        onUpdate: 'cascade',
-      },
+      // heroId: {
+      //   field: 'hero_id',
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: 'Supergeroes',
+      //     key: 'id',
+      //   },
+      //   onDelete: 'cascade',
+      //   onUpdate: 'cascade',
+      // },
       powerName: {
         field: 'power_name',
         allowNull: false,

@@ -23,7 +23,7 @@ module.exports.getAllSuperpowers = async (req, res, next) => {
     const { pagination = {} } = req;
     const superpowers = await Superpower.findAll({ ...pagination });
 
-    if (!superpowers.length) {
+    if (!superpowers?.length) {
       return next(createError(404, 'Superpowers not found'));
     }
 

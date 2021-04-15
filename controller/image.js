@@ -1,23 +1,23 @@
 const createError = require('http-errors');
 const { Image } = require('../models');
 
-module.exports.createImages = async (req, res, next) => {
-  try {
-    const { body } = req;
+// module.exports.createImages = async (req, res, next) => {
+//   try {
+//     const { body } = req;
 
-    const createdImage = await Image.create(body);
+//     const createdImage = await Image.create(body);
 
-    if (!createdImage) {
-      return next(createError(400, 'Error while creating the image'));
-    }
+//     if (!createdImage) {
+//       return next(createError(400, 'Error while creating the image'));
+//     }
 
-    res.status(201).send({
-      data: createdImage,
-    });
-  } catch (err) {
-    next(err);
-  }
-};
+//     res.status(201).send({
+//       data: createdImage,
+//     });
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 module.exports.createImagesMulter = async (req, res, next) => {
   try {
@@ -41,9 +41,9 @@ module.exports.getAllImages = async (req, res, next) => {
   try {
     const { pagination = {} } = req;
     const images = await Image.findAll({
-      attributes: {
-        exclude: ['heroId'],
-      },
+      // attributes: {
+      //   exclude: ['heroId'],
+      // },
       ...pagination,
     });
 
