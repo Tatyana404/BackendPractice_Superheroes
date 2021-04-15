@@ -28,23 +28,23 @@ Content-Type: application/json
 # "imagePath": ["test link","test link","test link"]
 # }
 
-# {
-#   "nickName": "Hulk",
-#   "realName": "Bruce Banner",
-#   "originDescription": "Scientist who has been exposed to gamma rays that release his inner demon Hulk during times of stress",
-#   "catchPhrase": "'Hulk smash','Hulk breaking'",
-#   "powerName":["superhuman strength and speed","endurance","flight"],
-# "imagePath": ["test link","test link","test link"]
-# }
-
 {
-  "nickName": "Iron Man",
-  "realName": "Tony Stark",
-  "originDescription": "A large capitalist and arms dealer, he once fell into the hands of terrorists where he almost died, but escaped by developing his wonderful suit. After that, he decided to fight evil",
-  "catchPhrase": "'I am iron man!'",
-  "powerName":["high level of intelligence","broad knowledge of science and technology","connection with the world wide web","armored suits"],
+  "nickName": "Hulk",
+  "realName": "Bruce Banner",
+  "originDescription": "Scientist who has been exposed to gamma rays that release his inner demon Hulk during times of stress",
+  "catchPhrase": "'Hulk smash','Hulk breaking'",
+  "powerName":["superhuman strength and speed","endurance","flight"],
 "imagePath": ["test link","test link","test link"]
 }
+
+# {
+#   "nickName": "Iron Man",
+#   "realName": "Tony Stark",
+#   "originDescription": "A large capitalist and arms dealer, he once fell into the hands of terrorists where he almost died, but escaped by developing his wonderful suit. After that, he decided to fight evil",
+#   "catchPhrase": "'I am iron man!'",
+#   "powerName":["high level of intelligence","broad knowledge of science and technology","connection with the world wide web","armored suits"],
+# "imagePath": ["test link","test link","test link"]
+# }
 
 # {
 #   "nickName": "Flash",

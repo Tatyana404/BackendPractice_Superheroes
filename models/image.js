@@ -12,17 +12,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Image.init(
     {
-      // heroId: {
-      //   field: 'hero_id',
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      //   references: {
-      //     model: 'Supergeroes',
-      //     key: 'id',
-      //   },
-      //   onDelete: 'cascade',
-      //   onUpdate: 'cascade',
-      // },
       imagePath: {
         field: 'image_path',
         allowNull: false,
