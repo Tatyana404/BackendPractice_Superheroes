@@ -4,7 +4,7 @@ const paginate = require('../middlewares/paginate.mw');
 
 const superpowerRouter = Router();
 
-superpowerRouter.post('/', SuperpowerController.createSuperpower);
+superpowerRouter.post('/:heroId', SuperpowerController.createSuperpower);
 superpowerRouter.get('/', paginate, SuperpowerController.getAllSuperpowers);
 superpowerRouter.delete('/:superpowerId', SuperpowerController.deleteSuperpower);
 
