@@ -65,11 +65,11 @@ module.exports.getAllSupergeroes = async (req, res, next) => {
       ...pagination,
       include: [
         {
-          model: Superpowers,
+          model: Superpower,
           attributes: ['id', 'powerName'],
         },
         {
-          model: Images,
+          model: Image,
           attributes: ['id', 'imagePath'],
         },
       ],
