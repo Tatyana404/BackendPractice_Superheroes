@@ -37,21 +37,14 @@ module.exports.createSupergero = async (req, res, next) => {
       return next(createError(400, 'Error while creating images'));
     }
 
-        // const newHero = await Supergero.findAll({
-    //   include: [
-    //     {
-    //       model: Superpower,
-    //       attributes: ['id', 'powerName'],
-    //     },
-    //     {
-    //       model: Image,
-    //       attributes: ['id', 'imagePath'],
-    //     },
-    //   ],
-    // });
-
     res.status(201).send({
-      data: { ...createdSupergero.get(), superpowers, images },
+      data: [
+        {
+          ...createdSupergero.get(),
+          superpowers,
+          images,
+        },
+      ],
     });
   } catch (err) {
     next(err);
@@ -118,19 +111,6 @@ module.exports.updateSupergero = async (req, res, next) => {
     if (rowsCount !== 1) {
       return next(createError(400, 'Supergero cant be updated'));
     }
-
-    // const updateHero = await Supergero.findAll({
-    //   include: [
-    //     {
-    //       model: Superpower,
-    //       attributes: ['id', 'powerName'],
-    //     },
-    //     {
-    //       model: Image,
-    //       attributes: ['id', 'imagePath'],
-    //     },
-    //   ],
-    // });
 
     res.send({ data: { updateSupergero } });
   } catch (err) {

@@ -8,16 +8,19 @@ module.exports.createImages = async (req, res, next) => {
       params: { heroId },
     } = req;
 
-    const updatedSupergero = await Image.create({
-      heroId: heroId,
-      imagePath: filename,
-    });
+    const images = await Image.bulkCreate(
+      filename.map(stringImages => ({
+        imagePath: stringImages,
+        heroId: heroId,
+      }))
+    );
 
-    res.send(updatedSupergero);
+    res.send({ data: images });
   } catch (err) {
     next(err);
   }
 };
+
 
 module.exports.getAllImages = async (req, res, next) => {
   try {
