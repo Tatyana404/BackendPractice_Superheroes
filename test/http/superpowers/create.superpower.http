@@ -1,7 +1,0 @@
-POST http://localhost:3000/api/superpowers HTTP/1.1
-Content-Type: application/json
-
-{
-  "heroId": "6",
-  "powerName": "immortality"
-}
